@@ -17,8 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     };
   
-    // Function to update movie details on the page
-    const updateMovieDetails = (movie) => {
+    // Function to change movie details on the page
+    const changeMovieDetails = (movie) => {
       const poster = document.getElementById("poster");
       const title = document.getElementById("title");
       const runtime = document.getElementById("runtime");
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     };
   
-    // Function to buy a ticket for a movie
+    // Function for the customer to buy a ticket for a movie
     const buyTicket = async (movieId) => {
       const movie = await fetchData(`${baseURL}/films/${movieId}`);
       if (movie && movie.capacity > movie.tickets_sold) {
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
           }),
         });
         if (response.ok) {
-          updateMovieDetails({ ...movie, tickets_sold: updatedTicketsSold });
+          changeMovieDetails({ ...movie, tickets_sold: updatedTicketsSold });
           const ticketData = {
             film_id: movieId,
             number_of_tickets: 1,
@@ -69,8 +69,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     };
   
-    // Function to render movie menu
-    const renderMovieMenu = async () => {
+    // Function to show the movie menu
+    const showMovieMenu = async () => {
       const films = await fetchData(`${baseURL}/films`);
       const filmsList = document.getElementById("films");
       filmsList.innerHTML = "";
@@ -90,9 +90,9 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     };
   
-    // Fetch and display details of the first movie
+    // Fetch and show details of the first movie
     fetchData(`${baseURL}/films/1`).then(updateMovieDetails);
   
-    // Render movie menu on page load
-    renderMovieMenu
+    // show movie menu on page load
+    console.log(showMovieMenu)
   

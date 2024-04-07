@@ -95,4 +95,4 @@ document.addEventListener("DOMContentLoaded", () => {
   
     // show movie menu on page load
     console.log(showMovieMenu)
-  
+})

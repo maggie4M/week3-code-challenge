@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
           })
           .catch(function(error) {
               // If there's an error fetching the data  an error message is displayed on the webpage
-              console.error('Error fetching movies Information:', error);
+              console.log('Error fetching movies Information:', error);
               displayError('Error ');
           });
   }
